@@ -26,14 +26,14 @@ plugins {
 ## Javaマルチプロジェクトのビルド
 サブプロジェクトのディレクトリ名の参照を記載する。
 
-settings.gradle
+creating-multi-project-builds/settings.gradle
 ```
 include 'api','common'
 ```
 
 別プロジェクトを参照するにはdependenciesへ下記の通り記載。
 
-build.gradle
+creating-multi-project-builds/api/build.gradle
 ```
 dependencies {
     compile project(':common')
