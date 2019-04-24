@@ -39,3 +39,17 @@ dependencies {
     compile project(':common')
 }
 ```
+
+## Spring Boot 2 アプリケーションのビルド
+
+チュートリアル通りだと動かなかったので、ビルド時のエラーから以下の通り変更してエラーを解消した。
+
+build.gradle
+```
+plugins {
+    id 'java'
+    id 'com.gradle.build-scan' version '2.2.1'
+    id 'org.springframework.boot' version '2.0.5.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+}
+```
