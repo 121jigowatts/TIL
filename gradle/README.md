@@ -53,3 +53,19 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.7.RELEASE'
 }
 ```
+
+## タスク
+
+作成したタスクは`gradle tasks --all`でリスト表示することができる。グループを指定しておけば`--all`オプションは不要。
+
+build.gradle
+```
+tasks.register("hello") {
+    group = 'Welcome'
+    description = 'Produces a greeting'
+
+    doLast {
+        println 'Hello, World'
+    }
+}
+```
