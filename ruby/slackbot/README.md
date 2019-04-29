@@ -11,6 +11,8 @@ $ rbenv rehash
 $ ruby -v
 ```
 
+## Botアプリケーションの動作テスト
+
 Gemfileを書いて、以下を実行。
 ```
 $ bundle install --path vendor/bundle
@@ -25,4 +27,9 @@ SlackのAppsよりBotsアプリケーションを設定し、トークンを取�
 ```
 $ export SLACK_API_TOKEN=<トークン>
 $ bundle exec ruby auth.rb
+```
+
+`#dev`チャンネルを作成して、botからpost。
+```
+$ bundle exec ruby post.rb
 ```
