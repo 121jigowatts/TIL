@@ -20,7 +20,16 @@ EM.run do
   end
 
   ws.on :message do |event|
-    p [:message, JSON.parse(event.data)]
+    data = JSON.parse(event.data)
+    p [:message, data]
+
+    if data['text'] == 'hello'
+      ws.send({
+        type: 'message',
+        text: "こんにちは <@#{data['user']}> さん",
+        channel: data['channel']
+        }.to_json)
+    end
   end
 
   ws.on :close do
