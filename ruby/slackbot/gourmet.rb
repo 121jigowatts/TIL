@@ -27,6 +27,9 @@ end
 data = JSON.parse(response.body, object_class: OpenStruct)
 
 data.results.shop.each do |a_shop|
-  puts a_shop.name
+  puts "name: #{a_shop.name}"
+  puts "address: #{a_shop.address}"
+  puts "url: #{a_shop.urls.pc}"
+  puts "--------------------------"
 end
 
