@@ -12,6 +12,11 @@
 set number
 ```
 
+## 検索結果をハイライト
+```
+set hlsearch
+```
+
 ## tabを半角スペースへ
 ```
 set expandtab
