@@ -8,4 +8,5 @@ gem 'eventmachine'
 
 gem 'slack-ruby-client'
 
+gem 'test-unit'
 

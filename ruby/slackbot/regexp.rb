@@ -1,7 +1,23 @@
-str = "ご飯　　    新宿 焼肉"
-pattern = /^ご飯[[:space:]|\s]*/
+class MessageAnalyzer
+  @@pattern = /^ご飯[[:space:]|\s]*/ 
+  def match?(text)
+    p @@pattern
+    p text
+    @@pattern === text
+  end
 
-p pattern === str
+  def keyword(text)
+    keyword = @@pattern.match(text).post_match
+  end
+end
 
-puts pattern.match(str).post_match
+text = 'ご飯'
 
+re = MessageAnalyzer.new
+puts re.match? text
+keyword =  re.keyword text
+puts keyword
+
+if keyword.empty?
+  puts 'Empty!'
+end
