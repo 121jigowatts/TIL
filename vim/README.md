@@ -63,6 +63,11 @@ set number
 set hlsearch
 ```
 
+## 検索時に大文字小文字を区別しない
+```
+set ignorecase
+```
+
 ## tabを半角スペースへ
 ```
 set expandtab
