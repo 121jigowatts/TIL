@@ -29,5 +29,31 @@ end
 coding_style = 'ruby'
 ```
 
+## クラス
+
+`attr_accessor`で自動的にセッター・ゲッターが定義される。セッターのみ必要な場合は`attr_writer`をゲッターのみ必要な場合は`attr_reader`を使用する。
+```
+class Greeting
+  attr_accessor :name
+
+  def display_name
+    puts name
+  end
+
+  def hello
+    puts 'Hello!'
+  end
+end
+```
+
+```
+class Greeting
+  attr_accessor :name
+
+  def initialize(name)
+    @name = name
+  end
+
+end
 
 
