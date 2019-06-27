@@ -2,7 +2,7 @@
 # Syntax
 ###########
 
-# if文
+# if構文
 x = 123
 
 if x % 2 == 0 then
@@ -11,7 +11,7 @@ else
   puts x.to_s + ' -> odd'
 end
 
-# for文
+# for構文
 list = ['a','b','c','d']
 for item in list
   puts item
@@ -36,7 +36,7 @@ members.each do |name, age|
   puts name.to_s + ':' + age.to_s
 end
 
-# case文
+# case構文
 month = 3
 
 case month
@@ -52,7 +52,7 @@ else
   puts 'Incorrect value.'
 end
 
-# while文
+# while構文
 val = 0
 while val < 5
   puts val
