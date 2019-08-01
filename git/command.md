@@ -176,6 +176,9 @@ $ git remote set-url リポジトリ名 リモートリポジトリのパス
 $ git push origin master
 # ブランチを指定
 $ git push origin ローカルブランチ名:リモートブランチ名
+
+# ローカルブランチをリモートブランチにPushする
+$ git push origin feature/hoge
 ```
 
 #### クローン
@@ -194,9 +197,15 @@ $ git log FETCH_HEAD
 $ git diff FETCH_HEAD
 # 問題がなければマージ
 $ git merge FETCH_HEAD
+
+# リモートブランチをローカルにチェックアウトする
+$ git checkout -b feature/hoge origin/feature/hoge
 ```
 
 ```
 # 最新のリモートリポジトリのブランチを取得しマージ*mergeまで同時にしてくれるので注意
 $ git pull origin リモートブランチ名
+
+# 削除されたリモートブランチを同期する
+$ git remote prune origin
 ```
