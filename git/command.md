@@ -8,6 +8,12 @@
 git config -l
 ```
 
+### 日本語ファイルが文字化けする時
+
+```sh
+git config --local core.quotepath false
+```
+
 ### リポジトリを初期化する
 
 ```sh
