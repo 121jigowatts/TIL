@@ -150,6 +150,35 @@ git checkout master
 git merge --no-ff MyBranch
 ```
 
+### 他ブランチのコミットを取り込む
+
+```sh
+# 複数のコミットを指定可能
+git cherry-pick コミット コミット
+
+# チェリーピック実行中に競合が発生した場合、競合を解決して続ける
+git cherry-pick --continue
+
+# チェリーピック実行中に競合が発生した場合、チェリーピックを中止し開始前の状態に戻る
+git cherry-pick --abort
+```
+
+### 作業を一時的に保存する
+
+```sh
+# 作業ツリーの変更をスタッシュに保存
+git stash
+
+# 保存したスタッシュを一覧表示
+git stash list
+
+# 保存した内容を表示
+git stash show -p stash@{0}
+
+# 保存した内容をワーキングツリーに戻す
+git stash pop
+```
+
 ### コミットにタグを設定する
 
 ```sh
@@ -162,14 +191,16 @@ git push --tags
 
 ***
 
-### git reset
-
 ### やり直し
 
-commitする前の状態でやり直したい場合
+```sh
+# 直前のコミットの一つ前の状態(HEAD^)に戻す
+git reset --hard HEAD^
+```
 
 ```sh
-git checkout -- <file>
+# ワーキングツリーの変更を取り消す
+git restore <file>
 ```
 
 ```sh
