@@ -150,6 +150,22 @@ git checkout master
 git merge --no-ff MyBranch
 ```
 
+### 複数のコミットをひとつにまとめる
+
+```sh
+# developブランチで複数回コミットする
+git commit -am "commit1"
+git commit -am "commit2"
+git commit -am "commit3"
+# masterブランチへ切り替える
+git checkout master
+
+# --squashオプションを付けてマージ
+git merge --squash develop
+
+git commit -am "squash"
+```
+
 ### 他ブランチのコミットを取り込む
 
 ```sh
