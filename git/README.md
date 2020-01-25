@@ -61,6 +61,21 @@ git log
 ```
 
 ```sh
+# 変更内容を表示する
+git log -p
+```
+
+```sh
+# コミットを1行で表示する
+git log --oneline
+```
+
+```sh
+# コミットの表示数を指定する
+git log -3
+```
+
+```sh
 # コミットメッセージを1行のみ表示する
 git log --pretty=short
 ```
