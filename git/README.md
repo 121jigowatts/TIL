@@ -115,8 +115,14 @@ git diff README.md
 # 削除対象のファイルを確認する（実際に削除はされない）
 git clean -n
 
+# ディレクトリも対象とする
+git clean -dn
+
 # 削除を実行する
 git clean -f
+
+# ディレクトリも対象とする
+git clean -df
 ```
 
 ***
