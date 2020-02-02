@@ -21,3 +21,10 @@ docker images -a
 # 複数のイメージを削除したい場合はスペースで区切って指定
 docker rmi イメージ名 [イメージ名]
 ```
+
+### Dockerイメージの検索
+
+```sh
+# Docker Hubに公開されているイメージを検索
+docker search [キーワード]
+```
