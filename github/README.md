@@ -42,6 +42,11 @@ gh issue view <number>
 ## Pull Request
 
 ```sh
+# pull requestをcheckoutして確認する
+gh pr checkout <number>
+```
+
+```sh
 # pull requestの一覧表示
 gh pr list
 ```
