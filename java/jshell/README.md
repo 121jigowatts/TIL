@@ -13,3 +13,15 @@ jshell
 ```sh
 /exit
 ```
+
+## ヘルプ
+
+```sh
+/help
+```
+
+## ファイルを読み込んで実行する
+
+```sh
+/open ./simple.java
+```
