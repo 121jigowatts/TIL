@@ -109,6 +109,11 @@ git diff HEAD
 git diff README.md
 ```
 
+```sh
+# 差分のあるファイル名だけ表示する
+git diff --name-only
+```
+
 ### バージョン管理外のファイルを削除する
 
 ```sh
