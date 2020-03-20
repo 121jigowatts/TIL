@@ -81,3 +81,127 @@ for (Product product : products) {
     String value = CategoryType.getCategoryNameByCode(product.getCategory());
     System.out.println(value);
 }
+
+System.out.println("---");
+
+
+interface Status {
+    String getColor();
+}
+
+class Todo implements Status {
+    public String getColor() {
+        return "RED";
+    }
+}
+
+class Doing implements Status {
+    public String getColor() {
+        return "BLUE";
+    }
+}
+
+class Done implements Status {
+    public String getColor() {
+        return "GREEN";
+    }
+}
+
+class Close implements Status {
+    public String getColor() {
+        return "YELLOW";
+    }
+}
+
+public enum StateType {
+    TODO(new Todo()),
+    DOING(new Doing()),
+    DONE(new Done()),
+    CLOSE(new Close())
+    ;
+
+    private Status status;
+
+    private StateType(Status status) {
+        this.status = status;
+    }
+
+    public String getStatusColor() {
+        return this.status.getColor();
+    }
+}
+
+class Item {
+    private String title;
+    private StateType state;
+    private StateType previousState;
+    private boolean closed;
+
+    public Item(String title, StateType state) {
+        this.title = title;
+        this.state = state;
+        this.closed = false;
+    }
+
+    public String getStatus() {
+        String text = this.state.name();
+        String color = this.state.getStatusColor();
+        return String.format("[STATUS:%s]<%s>", text, color);
+    }
+
+    public StateType move(StateType state) {
+        this.changeStatus(state);
+        return this.state;
+    }
+
+    public StateType close() {
+        this.closed = true;
+        this.changeStatus(StateType.CLOSE);
+        return this.state;
+    }
+    
+    public boolean isClosed() {
+        return this.closed;
+    }
+    
+    public void restore() {
+        if (isClosed()) {
+            this.closed = false;
+            this.state = this.previousState;
+        }
+    }
+    
+    private void changeStatus(StateType state) {
+        this.previousState = this.state;
+        this.state = state;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", this.title, this.getStatus());
+    }
+}
+
+StateType state = StateType.TODO;
+Item task01 = new Item("Unit Test", state);
+System.out.println(task01.toString());
+task01.close();
+task01.restore();
+System.out.println(task01.toString());
+
+task01.move(StateType.DOING);
+System.out.println(task01.toString());
+
+task01.move(StateType.DONE);
+System.out.println(task01.toString());
+
+task01.close();
+if (task01.isClosed()) {
+    System.out.println(task01.toString());
+
+    task01.restore();
+    System.out.println(task01.toString());
+
+    task01.restore();
+    System.out.println(task01.toString());
+}
