@@ -100,7 +100,7 @@ git diff --cached
 ```
 
 ```sh
-# ワーキングツリーと最新コミットの差分を表示する
+# 作業ツリーと最新コミットの差分を表示する
 git diff HEAD
 ```
 
@@ -217,7 +217,7 @@ git stash list
 # 保存した内容を表示
 git stash show -p stash@{0}
 
-# 保存した内容をワーキングツリーに戻す
+# 保存した内容を作業ツリーに戻す
 git stash pop
 ```
 
@@ -231,28 +231,77 @@ git tag <tag_name>
 git push --tags
 ```
 
+### リポジトリの最適化
+
+```sh
+# --autoオプションを付けるとリポジトリの状態から必要であれば実行される
+git gc --auto
+
+# オブジェクトの数が1000以上ある場合に実行するのが良い
+git count-objects -v
+```
+
 ***
 
 ### やり直し
 
 ```sh
+# ステージ(インデックス登録)を取り消す
+git reset
+
 # 直前のコミットの一つ前の状態(HEAD^)に戻す
 git reset --hard HEAD^
+
+# コミットのやり直しをする（作業ツリーはそのまま）
+git reset --soft HEAD^
 ```
 
 ```sh
-# ワーキングツリーの変更を取り消す
+# 作業ツリーの変更を取り消す
 git restore <file>
 ```
 
 ```sh
 # コミットログを修正する
 git commit --amend
+# エディタが開くので書き換えて保存する
 ```
 
-エディタが開くので書き換えて保存する
-
 ### git rebase -i
+
+### リモートリポジトリに公開済みのコミットを取り消す
+
+```sh
+git log --oneline
+hash111 bad commit
+hash000 good commit
+
+# 指定のコミットを取り消すコミットを作成する
+git revert --no-edit hash111
+
+# 複数のコミットを取り消す
+git revert --no-edit hash111 hash000
+
+# revert実行時に競合が発生した場合は競合を解決しrevertを続ける
+git revert --continue
+```
+
+```sh
+git log --oneline
+hash444 Merge branch 'feature' into 'master'
+hash333 add new feature (parent number 2)
+hash222 init (parent number 1)
+
+# マージコミットからマージ元ブランチのコミットを調べる
+# 左から親番号1、2となる
+git show hash444
+commit hash444...
+Merge: hash222 hash333
+
+# マージコミットを取り消すコミットを作成する
+# -mオプションに続き親番号を指定する
+git revert -m 1 hash444 --no-edit
+```
 
 ***
 
