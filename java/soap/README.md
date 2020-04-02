@@ -3,12 +3,36 @@
 ## サーバの起動
 
 ```sh
-git clone https://github.com/spring-guides/gs-producing-web-service.git
-cd gs-producing-web-service/complete
+cd soap_client
 ./mvnw spring-boot:run
 ```
 
 ブラウザから[http://localhost:8080/ws/countries.wsdl](http://localhost:8080/ws/countries.wsdl)にアクセスし機能することを確認。
+
+### tips1
+
+Java 12環境ではpom.xmlに以下の設定を追加することでエラーを解消できた。
+
+```xml
+<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+<dependency>
+  <groupId>javax.xml.bind</groupId>
+  <artifactId>jaxb-api</artifactId>
+  <version>2.3.0-b170201.1204</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/javax.activation/activation -->
+<dependency>
+  <groupId>javax.activation</groupId>
+  <artifactId>activation</artifactId>
+  <version>1.1</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
+<dependency>
+  <groupId>org.glassfish.jaxb</groupId>
+  <artifactId>jaxb-runtime</artifactId>
+  <version>2.3.0-b170127.1453</version>
+</dependency>
+```
 
 ## WSDLよりコード生成
 
@@ -18,7 +42,7 @@ pom.xmlに設定したurlよりWSDLクラスを`target/generated-sources`に自�
 ./mvnw clean compile
 ```
 
-### tips
+### tips2
 
 pom.xmlの`<exclusion>`タグで以下のエラーが発生した。
 
