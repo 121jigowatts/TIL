@@ -20,7 +20,7 @@ public class SoapClientApplication {
 	@Bean
 	CommandLineRunner lookup(CountryClient quoteClient) {
 		return args -> {
-			String country = "Spain";
+			String country = "United Kingdom";
 
 			if (args.length > 0) {
 				country = args[0];
@@ -30,8 +30,10 @@ public class SoapClientApplication {
 			var capital = aCountry.getCapital();
 			var currency = aCountry.getCurrency();
 			var population = aCountry.getPopulation();
+			var ccTLD = aCountry.getCcTLD();
 
-			log.info("Country:{} Capital:{} Currency:{} Population:{}", country, capital, currency, population);
+			log.info("Country:{} Capital:{} Currency:{} Population:{} ccTLD:{}", country, capital, currency, population,
+					ccTLD);
 		};
 	}
 }
