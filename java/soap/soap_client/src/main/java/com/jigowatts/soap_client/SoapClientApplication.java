@@ -30,7 +30,7 @@ public class SoapClientApplication {
 			var capital = aCountry.getCapital();
 			var currency = aCountry.getCurrency();
 			var population = aCountry.getPopulation();
-			var ccTLD = aCountry.getCcTLD();
+			var ccTLD = aCountry.getCctld();
 
 			log.info("Country:{} Capital:{} Currency:{} Population:{} ccTLD:{}", country, capital, currency, population,
 					ccTLD);
