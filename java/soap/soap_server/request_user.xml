@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+				  xmlns:gs="http://jigowatts.com/soap_server">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gs:getUserRequest>
+         <gs:id>1</gs:id>
+      </gs:getUserRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
