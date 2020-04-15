@@ -1,8 +1,8 @@
-package com.jigowatts.soap_server.service.users;
+package com.jigowatts.soap_server.service.user;
 
 import com.jigowatts.soap_server.GetUserRequest;
 import com.jigowatts.soap_server.GetUserResponse;
-import com.jigowatts.soap_server.repository.UserRepository;
+import com.jigowatts.soap_server.repository.user.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;

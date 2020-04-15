@@ -1,4 +1,4 @@
-package com.jigowatts.soap_server.repository;
+package com.jigowatts.soap_server.repository.user;
 
 import java.util.HashMap;
 import java.util.Map;

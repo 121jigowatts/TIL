@@ -11,7 +11,7 @@
 
 ```sh
 # Country情報照会
-curl --header "content-type: text/xml" -d @request.xml http://localhost:8080/ws
+curl --header "content-type: text/xml" -d @request_country.xml http://localhost:8080/ws
 
 # User情報照会
 curl --header "content-type: text/xml" -d @request_user.xml http://localhost:8080/ws

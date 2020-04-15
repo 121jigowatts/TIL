@@ -1,4 +1,8 @@
-package com.jigowatts.soap_server;
+package com.jigowatts.soap_server.service.country;
+
+import com.jigowatts.soap_server.GetCountryRequest;
+import com.jigowatts.soap_server.GetCountryResponse;
+import com.jigowatts.soap_server.repository.country.CountryRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
