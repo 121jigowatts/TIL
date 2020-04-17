@@ -36,4 +36,14 @@ public class SoapClientApplication {
 					ccTLD);
 		};
 	}
+
+	@Bean
+	String getUserName(UserClient client) {
+		var userId = 1;
+		var response = client.getUser(userId);
+		var aUser = response.getUser();
+		var userName = aUser.getName();
+		log.info("UserID:{} UserName:{}", Integer.toString(userId), userName);
+		return userName;
+	}
 }
