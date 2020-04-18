@@ -1,5 +1,7 @@
 package com.jigowatts.soap_client;
 
+import com.jigowatts.soap_client.service.CountryClient;
+import com.jigowatts.soap_client.service.UserClient;
 import com.jigowatts.soap_client.wsdl.GetCountryResponse;
 
 import org.springframework.boot.CommandLineRunner;
