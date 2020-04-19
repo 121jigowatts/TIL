@@ -1,7 +1,5 @@
 package com.jigowatts.soap_client.config;
 
-
-
 import com.jigowatts.soap_client.service.CountryClient;
 import com.jigowatts.soap_client.service.UserClient;
 
@@ -23,10 +21,10 @@ public class SoapConfiguration {
     @Bean
     public CountryClient countryClient(Jaxb2Marshaller marshaller) {
         var client = new CountryClient();
-        init(client,marshaller);
+        init(client, marshaller);
         return client;
     }
-    
+
     @Bean
     public UserClient userClient(Jaxb2Marshaller marshaller) {
         var client = new UserClient();
@@ -34,8 +32,8 @@ public class SoapConfiguration {
         return client;
     }
 
-    private void init(WebServiceGatewaySupport client, Jaxb2Marshaller marshaller){
-        client.setDefaultUri("uri");
+    private void init(WebServiceGatewaySupport client, Jaxb2Marshaller marshaller) {
+        client.setDefaultUri("http://localhost:8080/ws");
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
     }

@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UserClient extends WebServiceGatewaySupport {
 
-	public GetUserResponse getUser(int id) {
+    public GetUserResponse getUser(int id) {
 
         GetUserRequest request = new GetUserRequest();
         request.setId(id);
