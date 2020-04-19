@@ -1,5 +1,7 @@
 package com.jigowatts.soap_client;
 
+import com.jigowatts.soap_client.service.CountryClient;
+import com.jigowatts.soap_client.service.UserClient;
 import com.jigowatts.soap_client.wsdl.GetCountryResponse;
 
 import org.springframework.boot.CommandLineRunner;
@@ -35,5 +37,15 @@ public class SoapClientApplication {
 			log.info("Country:{} Capital:{} Currency:{} Population:{} ccTLD:{}", country, capital, currency, population,
 					ccTLD);
 		};
+	}
+
+	@Bean
+	String getUserName(UserClient client) {
+		var userId = 1;
+		var response = client.getUser(userId);
+		var aUser = response.getUser();
+		var userName = aUser.getName();
+		log.info("UserID:{} UserName:{}", Integer.toString(userId), userName);
+		return userName;
 	}
 }

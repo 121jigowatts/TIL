@@ -1,17 +1,15 @@
-package com.jigowatts.soap_client;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.jigowatts.soap_client.service;
 
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
+import lombok.extern.slf4j.Slf4j;
+
 import com.jigowatts.soap_client.wsdl.GetCountryRequest;
 import com.jigowatts.soap_client.wsdl.GetCountryResponse;
 
+@Slf4j
 public class CountryClient extends WebServiceGatewaySupport {
-
-  private static final Logger log = LoggerFactory.getLogger(CountryClient.class);
 
   public GetCountryResponse getCountry(String country) {
 

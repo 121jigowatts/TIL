@@ -1,6 +1,10 @@
-package com.jigowatts.soap_server;
+package com.jigowatts.soap_server.repository.country;
 
 import javax.annotation.PostConstruct;
+
+import com.jigowatts.soap_server.Country;
+import com.jigowatts.soap_server.Currency;
+
 import java.util.HashMap;
 import java.util.Map;
 
