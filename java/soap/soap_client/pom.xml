@@ -14,7 +14,7 @@
 	<description>Demo project for SOAP client by Spring Boot</description>
 
 	<properties>
-		<java.version>12</java.version>
+		<java.version>11</java.version>
 	</properties>
 
 	<dependencies>
@@ -52,9 +52,9 @@
 
 	<profiles>
 		<profile>
-			<id>java12</id>
+			<id>java11</id>
 			<activation>
-				<jdk>[12,)</jdk>
+				<jdk>[11,)</jdk>
 			</activation>
 
 			<dependencies>
