@@ -90,6 +90,11 @@ git log --graph
 git log README.md
 ```
 
+```sh
+# 特定ユーザのログのみ表示する
+git log --oneline --author='user_name'
+```
+
 ### 差分を表示する
 
 ```sh
