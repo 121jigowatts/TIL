@@ -95,6 +95,11 @@ git log README.md
 git log --oneline --author='user_name'
 ```
 
+```sh
+# コミット対象ファイルを表示する
+git log --oneline --name-status -5
+```
+
 ### 差分を表示する
 
 ```sh
