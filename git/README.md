@@ -2,6 +2,13 @@
 
 ## Gitの基本的な使い方について
 
+### ユーザー名とEmailアドレスを設定する
+
+```sh
+git config --global user.name "hoge foo"
+git config --global user.email hoge@example.com
+```
+
 ### Gitの設定を表示する
 
 ```sh
@@ -179,11 +186,41 @@ git checkout master
 git checkout -b MyBranch
 ```
 
+### ブランチをマージする
+
 ```sh
 # ブランチをmasterへ切り替える
 git checkout master
 # ブランチをマージする(MyBranchをmasterブランチへマージする)
 git merge --no-ff MyBranch
+```
+
+```sh
+# fast-forwardの場合のみマージする
+git merge --ff-only develop
+```
+
+```sh
+# マージで競合が発生
+git merge develop
+# 競合したファイルの状態を確認
+# UUマークが付いているファイルが競合しているので、編集し競合を解決する
+git status -s
+UU hoge.txt
+
+# 競合を解決したらgit add
+git add hoge.txt
+# Mマークに変更されていることを確認
+git status -s
+M hoge.txt
+
+# マージコミット
+git commit
+```
+
+```sh
+# マージを中止したい場合
+git merge --abort
 ```
 
 ### 複数のコミットをひとつにまとめる
