@@ -314,7 +314,47 @@ git commit --amend
 # エディタが開くので書き換えて保存する
 ```
 
-### git rebase -i
+### リベースする
+
+**リモートリポジトリにプッシュしたコミットはリベースしないように注意**
+
+```sh
+# featureブランチにmasterブランチの変更分を取り込む
+git checkout feature
+git rebase master
+```
+
+#### コミットをまとめる
+
+HEADから3つ前のコミットを起点にコミット内容を修正する。
+
+```sh
+git rebase -i HEAD~3
+```
+
+```sh
+# テキストエディタが起動するので、まとめるコミットをpickからsquashに編集して保存
+pick bd1d5ed 修正1つ目
+squash b76c68d 修正2つ目
+squash 80d9c21 修正3つ目
+```
+
+再度テキストエディタが起動するので、コミットメッセージを修正し保存する。
+
+#### コミットを削除する
+
+HEADから3つ前のコミットを起点にコミット内容を修正する。
+
+```sh
+git rebase -i HEAD~3
+```
+
+```sh
+# テキストエディタが起動するので、削除したいコミットをエディタ上で削除して保存
+pick bd1d5ed 修正1つ目
+# pick b76c68d 修正2つ目
+pick 80d9c21 修正3つ目
+```
 
 ### リモートリポジトリに公開済みのコミットを取り消す
 
@@ -366,6 +406,11 @@ git remote -v
 git remote set-url リポジトリ名 リモートリポジトリのパス
 ```
 
+```sh
+# リモートリポジトリの詳しい情報を表示
+git remote show origin
+```
+
 #### アップロード
 
 ```sh
@@ -407,4 +452,10 @@ git pull origin リモートブランチ名
 
 # 削除されたリモートブランチを同期する
 git remote prune origin
+```
+
+```sh
+# featureブランチにリモートのmasterブランチをプルしてくるときにリベースする
+git checkout feature
+git pull --rebase origin master
 ```
