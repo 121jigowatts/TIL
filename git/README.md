@@ -324,6 +324,40 @@ git checkout feature
 git rebase master
 ```
 
+#### コミットをやり直す
+
+HEADから3つ前のコミットを起点にコミット内容を修正する。
+
+```sh
+git rebase -i HEAD~3
+```
+
+```sh
+# テキストエディタが起動するので、やり直すコミットをpickからeditに編集して保存
+pick bd1d5ed 修正1つ目
+edit b76c68d 修正2つ目
+edit 80d9c21 修正3つ目
+```
+
+```sh
+# editと編集した一つ目のコミット(b76c68d 修正2つ目)について、ファイルを修正したらステージに追加
+git add hoge.md
+# --amendオプションでコミット
+git commit --amend
+# 一つ目のコミットのやり直しをコミットしたら--continueオプションでrebase
+git rebase --continue
+```
+
+```sh
+# editと編集した二つ目のコミット(80d9c21 修正3つ目)について、ファイルを修正したらステージに追加
+git add hoge.md
+# --amendオプションでコミット
+git commit --amend
+# コンフリクトが発生した場合はコミットコマンドではなく、--continueオプションでrebaseとする
+# テキストエディタが起動するので、コミットメッセージを編集し保存する
+git rebase --continue
+```
+
 #### コミットをまとめる
 
 HEADから3つ前のコミットを起点にコミット内容を修正する。
