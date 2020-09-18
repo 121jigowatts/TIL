@@ -62,6 +62,12 @@ docker run -d --name my-nginx -d nginx
 docker run -d --name my-nginx -d -p 8080:80 nginx
 ```
 
+コンテナを停止した時点でコンテナの削除を行う
+```sh
+# docker run --rm {イメージ名}
+docker run --name tmp-nginx --rm -d nginx
+```
+
 ### コンテナへの接続
 
 ```sh
@@ -92,7 +98,17 @@ docker run --name my-nginx -v /path/to/html:/usr/share/nginx/html:ro -d -p 8080:
 
 ### ホスト・コンテナ間のファイルコピー
 
-:todo
+ホスト側のファイルをコンテナ側にコピー
+```sh
+# docker cp {ホスト側のファイルパス} {コンテナ名}:{コンテナ側のパス}
+docker cp ./default.conf tmp-nginx:/etc/nginx/conf.d
+```
+
+コンテナ側のファイルをホスト側にコピー
+```sh
+# docker cp {コンテナ名}:{コンテナ側のファイルパス} {ホスト側のパス}
+docker cp tmp-nginx:/etc/nginx/conf.d/default.conf ./
+```
 
 ### データの管理
 
