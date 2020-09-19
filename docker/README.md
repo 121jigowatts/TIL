@@ -53,13 +53,13 @@ docker run --name my-nginx nginx
 デタッチドモードで実行する
 ```sh
 # docker run -d {イメージ名}
-docker run -d --name my-nginx -d nginx
+docker run --name my-nginx -d nginx
 ```
 
 ホスト側のポートとコンテナ側のポートをマッピング
 ```sh
 # docker run -p {ホスト側ポート}:{コンテナ側ポート} {イメージ名}
-docker run -d --name my-nginx -d -p 8080:80 nginx
+docker run --name my-nginx -d -p 8080:80 nginx
 ```
 
 コンテナを停止した時点でコンテナの削除を行う
