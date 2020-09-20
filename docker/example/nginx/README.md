@@ -26,3 +26,11 @@ docker-compose up -d
 
 ブラウザから[index.html](http://localhost/index.html)にアクセスして、`index.hmtl`の内容が表示されることを確認。
 
+## tips
+
+`docker-compose`実行時に`max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]`というメッセージが出て起動できない場合、以下のコマンドを実行する。
+
+```sh
+docker-machine ssh
+sudo sysctl -w vm.max_map_count=262144
+```
