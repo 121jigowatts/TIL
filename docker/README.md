@@ -193,3 +193,56 @@ docker-compose stop
 ```sh
 docker-compose down
 ```
+
+## Docker MachineによるDocker実行環境
+
+### Dockerホストの一覧表示
+
+```sh
+docker-machine ls
+```
+
+### Dockerホストの作成
+
+```sh
+# docker-machine create {Dockerホスト}
+docker-machine create test-host
+```
+
+### 操作対象のDockerホスト指定
+
+```sh
+# docker-machine env {Dockerホスト}
+docker-machine env test-host
+# Docker for mac
+eval $(docker-machine env test-host)
+```
+
+```cmd
+docker-machine env test-host
+REM Docker Toolbox(Windows)
+eval $("C:\Program Files\Docker Toolbox\docker-machine.exe" env test-host)
+```
+
+### Dockerホストに接続
+
+```sh
+# docker-machine ssh {Dockerホスト}
+docker-machine ssh test-host
+```
+
+### DockerホストのIP
+
+```sh
+# docker-machine ip {Dockerホスト}
+docker-machine ip test-host
+```
+
+### Dockerホストの起動・停止
+
+```sh
+# docker-machine start {Dockerホスト}
+docker-machine start test-host
+# docker-machine stop {Dockerホスト}
+docker-machine stop test-host
+```
