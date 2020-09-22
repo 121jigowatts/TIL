@@ -33,6 +33,12 @@ docker inspect nginx
 docker rmi nginx
 ```
 
+未使用のイメージを削除
+
+```sh
+docker image prune
+```
+
 ### Dockerイメージの検索
 
 Docker Hubに公開されているイメージを検索
