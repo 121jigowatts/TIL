@@ -2,7 +2,6 @@
 
 listenポートを8088に設定したdefault.confをコピーしたイメージをビルドする。
 
-
 ```sh
 # Dockerfileからイメージをビルド
 docker build -t nginx:edit1 .

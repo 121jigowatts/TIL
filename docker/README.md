@@ -105,7 +105,7 @@ docker rm my-nginx
 ### ホスト上のディレクトリをコンテナにマウント
 
 ```sh
-#docker run --name {コンテナ名} -v {ホスト側ディレクトリ}:{コンテナ側ディレクトリ}:{オプション}
+# docker run --name {コンテナ名} -v {ホスト側ディレクトリ}:{コンテナ側ディレクトリ}:{オプション}
 docker run --name my-nginx -v /path/to/html:/usr/share/nginx/html:ro -d -p 8080:80 nginx
 ```
 
