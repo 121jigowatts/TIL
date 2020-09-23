@@ -3,7 +3,8 @@
 ## Coding Style
 
 クラスやモジュール名称は大文字始まりとする。複数単語で構成される場合はキャメルケースが推奨とされる。
-```
+
+```rb
 class SimpleClass
 end
 
@@ -12,27 +13,31 @@ end
 ```
 
 メソッド名は小文字始まりとする。複数単語で構成される場合はスネークケースが慣例となっている。
-```
+
+```rb
 def simple_method
 end
 ```
 
 真偽値を返却するメソッドは末尾に`?`を付けたメソッド名にするのが一般的となっている。
-```
+
+```rb
 def done?
   true
 end
 ```
 
 変数名はメソッド名同様に小文字始まりとし、複数単語で構成される場合はスネークケースが慣例。
-```
+
+```rb
 coding_style = 'ruby'
 ```
 
 ## クラス
 
 `attr_accessor`で自動的にセッター・ゲッターが定義される。セッターのみ必要な場合は`attr_writer`をゲッターのみ必要な場合は`attr_reader`を使用する。
-```
+
+```rb
 class Greeting
   attr_accessor :name
 
@@ -46,7 +51,7 @@ class Greeting
 end
 ```
 
-```
+```rb
 class Greeting
   attr_accessor :name
 
@@ -55,5 +60,3 @@ class Greeting
   end
 
 end
-
-
