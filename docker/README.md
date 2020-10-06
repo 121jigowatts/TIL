@@ -228,6 +228,12 @@ docker-compose ps
 docker-compose logs
 ```
 
+### 複数コンテナのイメージ再作成
+
+```sh
+docker-compose build --no-cache
+```
+
 ### コマンド実行
 
 ```sh
