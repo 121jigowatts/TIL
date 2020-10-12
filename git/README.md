@@ -21,6 +21,12 @@ git config -l
 git config --local core.quotepath false
 ```
 
+### pullをfast-forwardのみ許可する
+
+```sh
+git config --global pull.ff only
+```
+
 ### リポジトリを初期化する
 
 ```sh
@@ -179,11 +185,15 @@ git branch -d MyBranch
 ```sh
 # ブランチを切り替える(masterブランチへ切り替える)
 git checkout master
+# こっちでもok
+git switch master
 ```
 
 ```sh
 # ブランチを作成し、切り替える
 git checkout -b MyBranch
+# こっちでもok
+git switch -c MyBranch
 ```
 
 ### ブランチをマージする
