@@ -1,5 +1,22 @@
 # Command
 
+## grep
+
+ファイル内の文字列を検索する
+
+```sh
+# grep 検索文字列 ファイル名
+grep test sample.txt
+# grep 検索文字列 ディレクトリ配下
+grep test ./*
+# grep 正規表現 対象
+grep h.*p ./*
+# -l でヒットしたファイル名のみ表示
+grep -l h.*p ./*
+# and検索
+grep test ./* | grep hoge
+```
+
 ## less
 
 テキストファイルの中身を見る
