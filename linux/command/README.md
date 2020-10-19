@@ -2,6 +2,23 @@
 
 ## curl
 
+ネットワークを経由したデータ転送を行う
+
+|オプション|説明|
+|-|-|
+|-d|POSTパラメータの指定|
+|-H|HTTPヘッダーの指定|
+|-I|HTTPレスポンスヘッダーの取得|
+|-v|詳細なログの出力|
+|-X|HTTPメソッドの指定|
+
+```sh
+# GETメソッド
+curl https://example.com/hello
+# POSTメソッド
+curl -X POST https://example.com/hello -H "accept: application/json" -d '{"Name":"alice", "Age":"17"}'
+```
+
 ## grep
 
 ファイル内の文字列を検索する
