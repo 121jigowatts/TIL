@@ -23,12 +23,18 @@ class Product {
   int getValue(){
     return this.value;
   }
+  int getAbsoluteValue() {
+    return Math.abs(this.value);
+  }
 }
 
-var products = Arrays.asList(new Product(1,"Apple",100),new Product(2,"Orange",300),new Product(2,"Banana",200));
+var products = Arrays.asList(new Product(1,"Apple",100),new Product(2,"Orange",300),new Product(2,"Banana",200),new Product(1,"Grape",-400));
 
 // Comparator作成
 Comparator<Product> comparator = Comparator.comparing(Product::getId).thenComparing(Product::getValue);
 
 // ソート処理
 products.stream().sorted(comparator).forEach(a -> System.out.println(a.getName()));
+
+// 逆順
+var sorted = products.stream().sorted(Comparator.comparing(Product::getAbsoluteValue).thenComparing(Product::getId).reversed()).collect(Collectors.toList());
