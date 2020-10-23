@@ -1,5 +1,24 @@
 # Command
 
+## curl
+
+ネットワークを経由したデータ転送を行う
+
+|オプション|説明|
+|-|-|
+|-d|POSTパラメータの指定|
+|-H|HTTPヘッダーの指定|
+|-I|HTTPレスポンスヘッダーの取得|
+|-v|詳細なログの出力|
+|-X|HTTPメソッドの指定|
+
+```sh
+# GETメソッド
+curl https://example.com/hello
+# POSTメソッド
+curl -X POST https://example.com/hello -H "accept: application/json" -d '{"Name":"alice", "Age":"17"}'
+```
+
 ## grep
 
 ファイル内の文字列を検索する
@@ -77,4 +96,35 @@ scp user@192.168.0.2:~/logs/debug.log ./
 
 # ローカルのファイルをリモートへコピー
 scp app.yaml user@192.168.0.2:~/app/
+```
+
+## tail
+
+ファイルの末尾を表示する
+
+|オプション|説明|
+|-|-|
+|-f|ファイル末尾の新しい追加情報を表示する|
+
+```sh
+tail -f /var/log/debug.log
+```
+
+## tar
+
+アーカイブファイルを作成・展開する
+
+|オプション|説明|
+|-|-|
+|c|新しくアーカイブを作成する|
+|f|アーカイブファイル名を指定する|
+|x|アーカイブを展開する|
+|v|アーカイブ結果を表示する|
+|z|アーカイブをgzip形式で圧縮/解凍する|
+
+```sh
+# 対象ファイルをgzipで圧縮
+tar cfvz /tmp/hoge.tar.gz ~/target
+# tar + gzipで圧縮されたアーカイブを解凍・展開する
+tar xfvz /tmp/hoge.tar.gz
 ```
