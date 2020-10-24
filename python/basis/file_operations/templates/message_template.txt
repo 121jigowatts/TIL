@@ -1,0 +1,7 @@
+Hello.
+
+I am $name.
+
+$message
+
+good bye.

@@ -1,0 +1,5 @@
+$name さん、ありがとう！
+よい一日を！
+
+Thank you so much, $name!
+Have a good day!
