@@ -1,0 +1,13 @@
+version: "3"
+services:
+  pydevenv:
+    container_name: pydevenv
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    tty: true
+
+volumes:
+  python_vol:
