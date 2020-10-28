@@ -95,6 +95,13 @@ docker run --name tmp-nginx --rm -d nginx
 docker exec -it my-nginx /bin/bash
 ```
 
+### コンテナの生成
+
+```sh
+# docker create {コンテナ名}
+docker create --name tmp-centos -it centos /bin/bash
+```
+
 ### コンテナの停止
 
 ```sh
