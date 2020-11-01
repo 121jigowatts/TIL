@@ -28,4 +28,8 @@ logger.critical('critical[logger]')
 logger.error('error[logger]')
 logger.warning('warning[logger]')
 logger.info('info[logger]')
-logger.debug('debug[logger]')
+logger.debug({
+    'action': 'create',
+    'status': 'fail',
+    'message': 'Failed to create data.'
+})
