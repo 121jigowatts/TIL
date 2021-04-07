@@ -1,0 +1,129 @@
+# STACK-NAME: test-env-vpc
+AWSTemplateFormatVersion: 2010-09-09
+Description: VPC template for test environment.
+
+Resources:
+  CFnVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.1.0.0/16
+      InstanceTenancy: default
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: test-vpc
+
+  TestPrimaryWeb:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.1.10.0/24
+      VpcId: !Ref CFnVPC
+      AvailabilityZone: !Select [ 0, !GetAZs ]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: test-primary-web
+
+  TestSecondaryWeb:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.1.20.0/24
+      VpcId: !Ref CFnVPC
+      AvailabilityZone: !Select [ 1, !GetAZs ]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: test-secondary-web
+
+  TestPrimaryDb:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.1.11.0/24
+      VpcId: !Ref CFnVPC
+      AvailabilityZone: !Select [ 0, !GetAZs ]
+      Tags:
+        - Key: Name
+          Value: test-primary-db
+
+  TestSecondaryDb:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.1.21.0/24
+      VpcId: !Ref CFnVPC
+      AvailabilityZone: !Select [ 1, !GetAZs ]
+      Tags:
+        - Key: Name
+          Value: test-secondary-db
+
+  CFnVPCIGW:
+    Type: AWS::EC2::InternetGateway
+    Properties: 
+      Tags:
+        - Key: Name
+          Value: test-igw
+
+  CFnVPCIGWAttach:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties: 
+      InternetGatewayId: !Ref CFnVPCIGW
+      VpcId: !Ref CFnVPC
+
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref CFnVPC
+      Tags:
+        - Key: Name
+          Value: test-public-route
+
+  PublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: CFnVPCIGW
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref CFnVPCIGW
+
+  TestPrimaryWebAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref TestPrimaryWeb
+      RouteTableId: !Ref PublicRouteTable
+
+  TestSecondaryWebAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref TestSecondaryWeb
+      RouteTableId: !Ref PublicRouteTable
+
+Outputs:
+  VPCID:
+    Description: VPC ID
+    Value: !Ref CFnVPC
+    Export:
+      Name: !Sub ${AWS::StackName}-VPCID
+
+  TestPrimaryWeb:
+    Description: TestPrimaryWeb
+    Value: !Ref TestPrimaryWeb
+    Export:
+      Name: !Sub ${AWS::StackName}-TestPrimaryWeb
+
+  TestSecondaryWeb:
+    Description: TestSecondaryWeb
+    Value: !Ref TestSecondaryWeb
+    Export:
+      Name: !Sub ${AWS::StackName}-TestSecondaryWeb
+
+  TestPrimaryDb:
+    Description: TestPrimaryDb
+    Value: !Ref TestPrimaryDb
+    Export:
+      Name: !Sub ${AWS::StackName}-TestPrimaryDb
+
+  TestSecondaryDb:
+    Description: TestSecondaryDb
+    Value: !Ref TestSecondaryDb
+    Export:
+      Name: !Sub ${AWS::StackName}-TestSecondaryDb
