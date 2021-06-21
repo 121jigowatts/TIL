@@ -1,0 +1,41 @@
+###
+get http://localhost:3000
+
+###
+get http://localhost:3000/users
+authorization: secretpassword
+
+###
+get http://localhost:3000/products
+
+###
+get http://localhost:3000/products?page=3&pageSize=4
+
+###
+get http://localhost:3000/products/1
+
+###
+post http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "product",
+    "author": "Sir Walter Scott"
+}
+
+###
+put http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "product-updated",
+    "id": 1
+}
+
+###
+delete http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "id": 1
+}
