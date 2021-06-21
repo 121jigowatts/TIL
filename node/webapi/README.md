@@ -20,3 +20,14 @@ npm install express
 ```sh
 node app.js
 ```
+
+### herokuへデプロイ
+
+```sh
+# Deploy先の作成
+heroku create node-express-on-heroku
+# masterブランチ意外でサブディレクトリをデプロイしたい場合
+git subtree push --prefix node/webapi/ heroku <現在のブランチ>:master
+# デプロイの確認
+heroku open
+```
