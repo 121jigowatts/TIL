@@ -11,7 +11,16 @@ app.get("/", (req, res) => res.send("Hello World!"));
 app
   .route("/products")
   .get((req, res) => {
-    res.json(products);
+    const page = +req.query.page;
+    const pageSize = +req.query.pageSize;
+
+    if (page && pageSize) {
+      const start = (page - 1) * pageSize;
+      const end = start + pageSize;
+      res.json(products.slice(start, end));
+    } else {
+      res.json(products);
+    }
   })
   .post((req, res) => {
     // スプレッド構文 (...): 配列やオブジェクトを展開することができるÏ
@@ -38,4 +47,8 @@ app
     res.json(deletedProduct);
   });
 
-app.listen(port, () => console.log(`Example app listening on prot ${port}!`));
+app.get("/products/:id", (req, res) => {
+  res.json(products.find((p) => p.id === +req.params.id));
+});
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));

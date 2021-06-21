@@ -5,11 +5,18 @@ get http://localhost:3000
 get http://localhost:3000/products
 
 ###
+get http://localhost:3000/products?page=3&pageSize=4
+
+###
+get http://localhost:3000/products/1
+
+###
 post http://localhost:3000/products
 Content-Type: application/json
 
 {
-    "name": "product"
+    "name": "product",
+    "author": "Sir Walter Scott"
 }
 
 ###
