@@ -1,8 +1,5 @@
 function App() {
-  const profiles = [
-    { name: "Alice", age: 16 },
-    { name: "Bob", age: 31 },
-  ];
+  const profiles = [{ name: "Alice", age: 16 }, { name: "Bob", age: 31 }, {}];
 
   return (
     <div>
@@ -29,6 +26,11 @@ const User = function User(props) {
       </h2>
     </div>
   );
+};
+
+User.defaultProps = {
+  name: "NoName",
+  age: 0,
 };
 
 export default App;
