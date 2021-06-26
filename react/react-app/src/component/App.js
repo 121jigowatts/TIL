@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function App() {
   const profiles = [{ name: "Alice", age: 16 }, { name: "Bob", age: 31 }, {}];
 
@@ -31,6 +33,10 @@ const User = function User(props) {
 User.defaultProps = {
   name: "NoName",
   age: 0,
+};
+User.propTypes = {
+  name: PropTypes.string,
+  age: PropTypes.number,
 };
 
 export default App;
