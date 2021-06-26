@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Counter from "./Counter";
 
 function App() {
   const profiles = [{ name: "Alice", age: 16 }, { name: "Bob", age: 31 }, {}];
@@ -16,11 +17,12 @@ function App() {
       {profiles.map((profile, index) => {
         return <User name={profile.name} age={profile.age} key={index} />;
       })}
+      <Counter />
     </div>
   );
 }
 
-const User = function User(props) {
+const User = (props) => {
   return (
     <div>
       <h2>
