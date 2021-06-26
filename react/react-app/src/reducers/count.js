@@ -2,7 +2,11 @@ import { INCREMENT, DECREMENT } from "../actions";
 
 const initialState = { value: 0 };
 
-const countReducer = (state = initialState, action) => {
+const countReducer = (state, action) => {
+  if (typeof state === "undefined") {
+    return initialState;
+  }
+
   switch (action.type) {
     case INCREMENT:
       return { value: state.value + 1 };
