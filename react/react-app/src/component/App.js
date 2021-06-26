@@ -1,4 +1,9 @@
 function App() {
+  const profiles = [
+    { name: "Alice", age: 16 },
+    { name: "Bob", age: 31 },
+  ];
+
   return (
     <div>
       <h1>Hello, World!</h1>
@@ -9,7 +14,9 @@ function App() {
       >
         PUSH!
       </button>
-      <User name={"Alice"} age={16} />
+      {profiles.map((profile, index) => {
+        return <User name={profile.name} age={profile.age} key={index} />;
+      })}
     </div>
   );
 }
@@ -17,7 +24,9 @@ function App() {
 const User = function User(props) {
   return (
     <div>
-      <h2>Hi! I am {props.name}, and {props.age} years old.</h2>
+      <h2>
+        Hi! I am {props.name}, and {props.age} years old.
+      </h2>
     </div>
   );
 };
