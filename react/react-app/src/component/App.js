@@ -1,5 +1,6 @@
 import Counter from "./Counter";
 import User from "./User";
+import Product from "./Product";
 
 function App() {
   const profiles = [{ name: "Alice", age: 16 }, { name: "Bob", age: 31 }, {}];
@@ -18,6 +19,7 @@ function App() {
         return <User name={profile.name} age={profile.age} key={index} />;
       })}
       <Counter />
+      <Product />
     </div>
   );
 }
