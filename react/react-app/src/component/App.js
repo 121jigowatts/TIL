@@ -2,6 +2,7 @@ import Counter from "./Counter";
 import User from "./User";
 import Product from "./Product";
 import Clock from "./Clock";
+import Toggle from "./Toggle";
 
 function App() {
   const profiles = [{ name: "Alice", age: 16 }, { name: "Bob", age: 31 }, {}];
@@ -22,6 +23,7 @@ function App() {
       })}
       <Counter />
       <Product />
+      <Toggle />
     </div>
   );
 }
