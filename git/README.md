@@ -218,6 +218,11 @@ git merge develop
 git status -s
 UU hoge.txt
 
+# 競合したファイルを現在のブランチの状態とする
+git checkout --ours hoge.txt
+# 競合したファイルをマージブランチ側の状態とする
+git checkout --theirs hoge.txt
+
 # 競合を解決したらgit add
 git add hoge.txt
 # Mマークに変更されていることを確認
